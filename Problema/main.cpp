@@ -2,8 +2,8 @@
 
 int main()
 {
-    int ava = 0;
-    float XD=0.0, YD = 0.0, XO = 0.0 , YO = 0.0;
+    int ava = 0, pro = 0;
+    float XD=0.0, YD = 0.0, XO = 0.0 , YO = 0.0,alfa = 0.0, VelD = 0.0;
 
     cout << "\n\tSe puede tomar dos bando para el enfrentameinto entre dos canones uno con intencion ofenciva\n";
     cout << "\tY el otro con intencion defenciva, el canon con intencion ofenciva (HO), tiene un radio de dispario de\n";
@@ -23,28 +23,38 @@ int main()
                 cout << "\tIngrese el modo de ataque(Todos los modos se hacen en conjuntos de 3 respuestas por 3 metodos distintos)\n\n\t1) Completamente defencivo\n\n\t2) Defensivo y posterior ataque\n\n --> ";
                 cin >> ava;cout << "\n\n";
 
-
-
                 while (true){
                     cout << "Ingrese la ubiacion del punto en que se realizo el ataque XO y YO\n\n XD --> ";
-                    cin >> XO; cout << "\n YD --> ";cin >> YD;cout << "\n\n";
+                    cin >> XO; cout << "\n YD --> ";cin >> YO;cout << "\n\n";
+
+                    while (true){
+                        cout << "Ingrese el angulo de tiro alfa\n\n alfa --> ";
+                        cin >> alfa;cout << "\n\n";
+                        if (alfa < -90 || alfa > 90) cout << "Valor inconcluso\n\n";
+                        else break;
+                    }
+
+                    cout << "Ingrese la velocidad de disparon (VelD) en d sobre segundos \n\n VelD -->";
+                    cin >> VelD;cout << "\n\n";
+
+                    if (ava == 1){
+                    }
+                    else if (ava == 2){
+
+                    }
+                    else cout << "\n Valor fuera del rango";
+
+                    pro = 0;
+                    cout << "\n\tQue desea hacer\n\n\t1) Ingresar otro valor de ataque\n\n\t2) Cambiar modo\n\n\t3) Cambiar posicion de defensa\n\n\t4) SALIR\n\n\t --> ";
+                    cin >> pro;cout<<"\n\n";
+                    if (pro == 2 || pro == 3 || pro == 4) break;
+                    else if (pro != 1) cout << "\n Valor fuera del rango";
+
                 }
-
-
-
-                if (ava == 1){
-                }
-                else if (ava == 2){
-
-                }
-                else cout << "\n Valor fuera del rango";
+                if (pro == 3 || pro == 4) break;
             }
-
-
-
-
+            if (pro == 4) break;
         }
-        cout << "Hola TU";
     }
     else if  (ava == 2) cout << "Como estas";
     else cout << "\n Valor fuera del rango";
