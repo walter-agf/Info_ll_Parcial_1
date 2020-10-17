@@ -24,25 +24,17 @@ int main()
                 cin >> ava;cout << "\n\n";
 
                 while (true){
-                    cout << "Ingrese la ubiacion del punto en que se realizo el ataque XO y YO\n\n XD --> ";
-                    cin >> XO; cout << "\n YD --> ";cin >> YO;cout << "\n\n";
 
-                    while (true){
-                        cout << "Ingrese el angulo de tiro alfa\n\n alfa --> ";
-                        cin >> alfa;cout << "\n\n";
-                        if (alfa < -90 || alfa > 90) cout << "Valor inconcluso\n\n";
-                        else break;
-                    }
-
-                    cout << "Ingrese la velocidad de disparon (VelD) en d sobre segundos \n\n VelD -->";
-                    cin >> VelD;cout << "\n\n";
 
                     if (ava == 1){
-                    }
-                    else if (ava == 2){
+                        ingreso(&XO,&YO,&alfa,&VelD);
 
                     }
-                    else cout << "\n Valor fuera del rango";
+                    else if (ava == 2){
+                        ingreso(&XO,&YO,&alfa,&VelD);
+
+                    }
+                    else cout << "\n Valor fuera del rango\n\n";
 
                     pro = 0;
                     cout << "\n\tQue desea hacer\n\n\t1) Ingresar otro valor de ataque\n\n\t2) Cambiar modo\n\n\t3) Cambiar posicion de defensa\n\n\t4) SALIR\n\n\t --> ";
