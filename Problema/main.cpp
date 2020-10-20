@@ -20,17 +20,35 @@ int main()
     cout << "\n\tIngrese el vando a ejercer:\n\n\t1) Defensivo\n\t2) Ofencivo\n\n --> ";
     cin >> ava;
     if (ava == 1) {
-        cout << "Hola";
-    }
-    else if  (ava == 2) {
-        dist = ingreso (&XO, &YO, &XD, &YD, &d);
-        if (dist == false) cout << "\n\nEl Defensor esta fuera de rango de ataque\n\n";
-        else{
+        while (true){
+            ingreso_def (&XO, &YO, &XD, &YD, &d);
+            while (true){
 
-
-
+                tiempo (&XO, &XD, &YO, &YD,2);
+                cout << "\n\n\tQue desea realizar? \n\n\t1) Reingresar valores poscionales\n\n\t2) Reingresar datos de ataque\n\n\t3) SALIR\n\n --> \n";
+                cin >> ava; cout << "\n\n";
+                if (ava == 1 || ava == 3) break;
+                else if (ava != 2) cout << "\n Valor fuera del rango\n\n";
+            }
+            if (ava == 3) break;
         }
     }
-    else cout << "\n Valor fuera del rango";
+    else if  (ava == 2) {
+        while (true){
+            dist = ingreso (&XO, &YO, &XD, &YD, &d);
+            if (dist == false) cout << "\n\nEl Defensor esta fuera de rango de ataque\n\n";
+            else{
+                while (true){
+                    tiempo (&XO, &XD, &YO, &YD,3);
+                    cout << "\n\n\tQue desea realizar? \n\n\t1) Reingresar valores poscionales\n\n\t2) Reingresar datos de ataque\n\n\t3) SALIR\n\n --> \n";
+                    cin >> ava; cout << "\n\n";
+                    if (ava == 1 || ava == 3) break;
+                    else if (ava != 2) cout << "\n Valor fuera del rango\n\n";
+                }
+            }
+            if (ava == 3) break;
+        }
+    }
+    else cout << "\n Valor fuera del rango\n\n";
     return 0;
 }
