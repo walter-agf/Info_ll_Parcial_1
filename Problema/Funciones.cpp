@@ -78,19 +78,22 @@ void defensa (float *XO,float *YO,float *XD,float *YD,float *d){
         //cout << "\n" << vy << "\n";
 
         if (*XD - px > dist ){
-            cout << "\n" << *XD - px << "\n";
-            cout << "\n" << dist << "\n";
+            //cout << "\n" << *XD - px << "\n";
+            //cout << "\n" << dist << "\n";
             cout << "Fuera de rango de ataque";
         }
         else{
 
-            cout << "\n" << *XD - px << "\n";
-            cout << "\n" << dist << "\n";
+            //cout << "\n" << *XD - px << "\n";
+            //cout << "\n" << dist << "\n";
 
             tiempo = tiempo / 2;
             px = *XO + vx * tiempo;
             py = py*tiempo;
             py = *YO+( py + (-9.81*pow(tiempo,2)/2));
+
+            //cout << "\n" << px << "\n";
+            //cout << "\n" << py << "\n";
 
             vy = 9.81*pow(tiempo,2);
             vy = vy/2;
@@ -98,6 +101,9 @@ void defensa (float *XO,float *YO,float *XD,float *YD,float *d){
             vy = vy / tiempo;
 
             vx = *XD - px /tiempo;
+
+            cout << "\n" << px << "\n";
+            cout << "\n" << py << "\n";
 
             velocidad = sqrt(pow(vx,2)+pow(vy,2));
 
