@@ -37,10 +37,10 @@ void tiempo ( float *XO, float *XD, float *YO, float *YD,int rep){
         vy = vy / t;
         vx = sqrt(pow(vx,2)+pow(vy,2));
         //cout << "\n" << vy << "\n";
-        cout << "\tLa velocidad de disparo es = " << vx << "\n\n";
+        cout << "\tLa velocidad de disparo es = " << vx << "  (distancia/segundos)\n\n";
         angulo = asin(vy/vx);
         angulo = angulo*180 / 3.1415926536;
-        cout << "\t el algunlo de tiro es = " << angulo << "\n\n";
+        cout << "\t el algunlo de tiro es = " << angulo << "  (grados)\n\n";
     }
 }
 
@@ -57,3 +57,19 @@ void ingreso_def (float *XO,float *YO,float *XD,float *YD, float *d){
 
 }
 
+void defensa (float *XO,float *YO,float *XD,float *YD){
+    float X = *XD - *XO, Y = *YD - *YO, velocidad = 0.0, angulo = 0.0;
+    float vx = 0.0, vy = 0.0;
+    cout << "\n\n\tIngrese la velocidad de disparo \n\n --> ";cin >> velocidad; cout << "\n\n";
+    cout << "\n\n\tIngrese la angulo de disparo ( entre -90 y 90 )\n\n --> ";cin >> angulo; cout << "\n\n";
+    angulo = angulo * 3.1415926536 / 180;
+    vy = sin(angulo) * velocidad;
+    vx = cos(angulo) * velocidad;
+    vx = *XO + vx * 2.5;
+    cout << "\n" << vy << "\n";
+    vy = vy*2.5;
+    cout << "\n" << vy << "\n";
+    vy = *YO+( vy + (-9.81*pow(2.5,2)/2));
+    cout << "\n" << vx << "\n";
+    cout << "\n" << vy << "\n";
+}
