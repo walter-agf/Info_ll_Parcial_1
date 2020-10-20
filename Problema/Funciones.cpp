@@ -102,8 +102,11 @@ void defensa (float *XO,float *YO,float *XD,float *YD,float *d){
 
             vx = *XD - px /tiempo;
 
-            cout << "\n" << px << "\n";
-            cout << "\n" << py << "\n";
+            //cout << "\n" << px << "\n";
+            //cout << "\n" << py << "\n";
+
+
+            //___________________
 
             velocidad = sqrt(pow(vx,2)+pow(vy,2));
 
@@ -112,7 +115,7 @@ void defensa (float *XO,float *YO,float *XD,float *YD,float *d){
             angulo = asin(vy / velocidad);
             angulo = angulo * 180 /3.1415926536;
 
-            cout << "El angulo de disparo debe ser = " << velocidad << "\n\n";
+            cout << "El angulo de disparo debe ser = " << angulo << "\n\n";
         }
     }
 }

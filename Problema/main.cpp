@@ -17,7 +17,7 @@ int main()
     cout << "\n\n\t(NOTA: Se toma en cuenta un diagrama carteciano con origen en (0,0) del lado del canon ofencivo";
     cout << "\n\tY con medidas tomadas a partir de la distancia definida por el usuario ya sean en cm,m,km..\n";
     cout << "\tNo se podra realizar un disparon si no se esta dentro del rango de ataque del canon)\n\n";
-    cout << "\n\tIngrese el vando a ejercer:\n\n\t1) Defensivo\n\t2) Ofencivo\n\n --> ";
+    cout << "\n\tIngrese el bando a ejercer:\n\n\t1) Defensivo\n\t2) Ofencivo\n\n --> ";
     cin >> ava;
     if (ava == 1) {
         while (true){
