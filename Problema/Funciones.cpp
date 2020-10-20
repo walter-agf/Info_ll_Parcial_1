@@ -57,19 +57,56 @@ void ingreso_def (float *XO,float *YO,float *XD,float *YD, float *d){
 
 }
 
-void defensa (float *XO,float *YO,float *XD,float *YD){
+void defensa (float *XO,float *YO,float *XD,float *YD,float *d){
     float X = *XD - *XO, Y = *YD - *YO, velocidad = 0.0, angulo = 0.0;
-    float vx = 0.0, vy = 0.0;
+    float vx = 0.0, vy = 0.0, tiempo=0.0,dist = 0.025*(*d),px = 0.0,py = 0.0;
     cout << "\n\n\tIngrese la velocidad de disparo \n\n --> ";cin >> velocidad; cout << "\n\n";
     cout << "\n\n\tIngrese la angulo de disparo ( entre -90 y 90 )\n\n --> ";cin >> angulo; cout << "\n\n";
     angulo = angulo * 3.1415926536 / 180;
     vy = sin(angulo) * velocidad;
     vx = cos(angulo) * velocidad;
-    vx = *XO + vx * 2.5;
-    cout << "\n" << vy << "\n";
-    vy = vy*2.5;
-    cout << "\n" << vy << "\n";
-    vy = *YO+( vy + (-9.81*pow(2.5,2)/2));
-    cout << "\n" << vx << "\n";
-    cout << "\n" << vy << "\n";
+
+    tiempo = (X/vx)-2.5;
+    if (tiempo <= 0) cout << "NO hay tiempo de reaccion";
+    else {
+        px = *XO + vx * 2.5;
+        //cout << "\n" << vy << "\n";
+        py = py*2.5;
+        //cout << "\n" << vy << "\n";
+        py = *YO+( py + (-9.81*pow(2.5,2)/2));
+        //cout << "\n" << vx << "\n";
+        //cout << "\n" << vy << "\n";
+
+        if (*XD - px > dist ){
+            cout << "\n" << *XD - px << "\n";
+            cout << "\n" << dist << "\n";
+            cout << "Fuera de rango de ataque";
+        }
+        else{
+
+            cout << "\n" << *XD - px << "\n";
+            cout << "\n" << dist << "\n";
+
+            tiempo = tiempo / 2;
+            px = *XO + vx * tiempo;
+            py = py*tiempo;
+            py = *YO+( py + (-9.81*pow(tiempo,2)/2));
+
+            vy = 9.81*pow(tiempo,2);
+            vy = vy/2;
+            vy = vy + (py-(*YD));
+            vy = vy / tiempo;
+
+            vx = *XD - px /tiempo;
+
+            velocidad = sqrt(pow(vx,2)+pow(vy,2));
+
+            cout << "La velocidad de disparo debe ser = " << velocidad << "\n\n";
+
+            angulo = asin(vy / velocidad);
+            angulo = angulo * 180 /3.1415926536;
+
+            cout << "El angulo de disparo debe ser = " << velocidad << "\n\n";
+        }
+    }
 }

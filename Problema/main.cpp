@@ -24,7 +24,7 @@ int main()
             ingreso_def (&XO, &YO, &XD, &YD, &d);
             while (true){
 
-                defensa (&XO,&YO,&XD,&YD);
+                defensa (&XO,&YO,&XD,&YD,&d);
 
                 //tiempo (&XO, &XD, &YO, &YD,2);
                 cout << "\n\n\tQue desea realizar? \n\n\t1) Reingresar valores poscionales\n\n\t2) Reingresar datos de ataque\n\n\t3) SALIR\n\n --> \n";

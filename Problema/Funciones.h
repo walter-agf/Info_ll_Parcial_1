@@ -9,4 +9,4 @@ void tiempo ( float *XO, float *XD, float *YO, float *YD,int rep);
 
 void ingreso_def (float *XO,float *YO,float *XD,float *YD, float *d);
 
-void defensa (float *XO,float *YO,float *XD,float *YD);
+void defensa (float *XO,float *YO,float *XD,float *YD, float *d);
